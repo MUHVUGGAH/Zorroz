@@ -1,0 +1,25 @@
+FROM golang:1.24-bookworm AS builder
+
+WORKDIR /src
+
+# Copy the full project (needed for local module replace directives)
+COPY browserforge/ /src/browserforge/
+COPY camoufox/golanglib/ /src/camoufox/golanglib/
+COPY camoufox/scripts/benchmark/ /src/camoufox/scripts/benchmark/
+
+WORKDIR /src/camoufox/scripts/benchmark
+RUN go build -o /benchmark .
+
+# Runtime image
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    xvfb \
+    procps \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /benchmark /usr/local/bin/benchmark
+
+ENTRYPOINT ["benchmark"]

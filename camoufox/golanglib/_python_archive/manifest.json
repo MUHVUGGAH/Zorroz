@@ -1,0 +1,596 @@
+{
+  "entries": [
+    {
+      "original_path": "pyproject.toml",
+      "archive_path": "_python_archive\\pyproject.toml"
+    },
+    {
+      "original_path": "publish.sh",
+      "archive_path": "_python_archive\\publish.sh"
+    },
+    {
+      "original_path": "camoufox\\__init__.py",
+      "archive_path": "_python_archive\\camoufox\\__init__.py"
+    },
+    {
+      "original_path": "camoufox\\__main__.py",
+      "archive_path": "_python_archive\\camoufox\\__main__.py"
+    },
+    {
+      "original_path": "camoufox\\__version__.py",
+      "archive_path": "_python_archive\\camoufox\\__version__.py"
+    },
+    {
+      "original_path": "camoufox\\_warnings.py",
+      "archive_path": "_python_archive\\camoufox\\_warnings.py"
+    },
+    {
+      "original_path": "camoufox\\addons.py",
+      "archive_path": "_python_archive\\camoufox\\addons.py"
+    },
+    {
+      "original_path": "camoufox\\async_api.py",
+      "archive_path": "_python_archive\\camoufox\\async_api.py"
+    },
+    {
+      "original_path": "camoufox\\exceptions.py",
+      "archive_path": "_python_archive\\camoufox\\exceptions.py"
+    },
+    {
+      "original_path": "camoufox\\fingerprints.py",
+      "archive_path": "_python_archive\\camoufox\\fingerprints.py"
+    },
+    {
+      "original_path": "camoufox\\geolocation.py",
+      "archive_path": "_python_archive\\camoufox\\geolocation.py"
+    },
+    {
+      "original_path": "camoufox\\gui\\__init__.py",
+      "archive_path": "_python_archive\\camoufox\\gui\\__init__.py"
+    },
+    {
+      "original_path": "camoufox\\gui\\assets\\SegUIVar.ttf",
+      "archive_path": "_python_archive\\camoufox\\gui\\assets\\SegUIVar.ttf"
+    },
+    {
+      "original_path": "camoufox\\gui\\assets\\icon.ico",
+      "archive_path": "_python_archive\\camoufox\\gui\\assets\\icon.ico"
+    },
+    {
+      "original_path": "camoufox\\gui\\assets\\segmdl2.ttf",
+      "archive_path": "_python_archive\\camoufox\\gui\\assets\\segmdl2.ttf"
+    },
+    {
+      "original_path": "camoufox\\gui\\backend.py",
+      "archive_path": "_python_archive\\camoufox\\gui\\backend.py"
+    },
+    {
+      "original_path": "camoufox\\gui\\qml\\main.qml",
+      "archive_path": "_python_archive\\camoufox\\gui\\qml\\main.qml"
+    },
+    {
+      "original_path": "camoufox\\ip.py",
+      "archive_path": "_python_archive\\camoufox\\ip.py"
+    },
+    {
+      "original_path": "camoufox\\locales.py",
+      "archive_path": "_python_archive\\camoufox\\locales.py"
+    },
+    {
+      "original_path": "camoufox\\multiversion.py",
+      "archive_path": "_python_archive\\camoufox\\multiversion.py"
+    },
+    {
+      "original_path": "camoufox\\pkgman.py",
+      "archive_path": "_python_archive\\camoufox\\pkgman.py"
+    },
+    {
+      "original_path": "camoufox\\server.py",
+      "archive_path": "_python_archive\\camoufox\\server.py"
+    },
+    {
+      "original_path": "camoufox\\sync_api.py",
+      "archive_path": "_python_archive\\camoufox\\sync_api.py"
+    },
+    {
+      "original_path": "camoufox\\utils.py",
+      "archive_path": "_python_archive\\camoufox\\utils.py"
+    },
+    {
+      "original_path": "camoufox\\virtdisplay.py",
+      "archive_path": "_python_archive\\camoufox\\virtdisplay.py"
+    },
+    {
+      "original_path": "camoufox\\webgl\\__init__.py",
+      "archive_path": "_python_archive\\camoufox\\webgl\\__init__.py"
+    },
+    {
+      "original_path": "camoufox\\webgl\\sample.py",
+      "archive_path": "_python_archive\\camoufox\\webgl\\sample.py"
+    },
+    {
+      "original_path": "..\\example\\async_example.py",
+      "archive_path": "_python_archive\\_repo\\example\\async_example.py"
+    },
+    {
+      "original_path": "..\\example\\example.py",
+      "archive_path": "_python_archive\\_repo\\example\\example.py"
+    },
+    {
+      "original_path": "..\\example\\example_simple.py",
+      "archive_path": "_python_archive\\_repo\\example\\example_simple.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\bundle.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\bundle.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\certificate.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\certificate.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\constants.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\constants.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\generate-presets.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\generate-presets.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\grading.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\grading.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\presets.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\presets.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\run_tests.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\run_tests.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\runner.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\runner.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\server.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\server.py"
+    },
+    {
+      "original_path": "..\\build-tester\\scripts\\wsl.py",
+      "archive_path": "_python_archive\\_repo\\build-tester\\scripts\\wsl.py"
+    },
+    {
+      "original_path": "..\\scripts\\_mixin.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\_mixin.py"
+    },
+    {
+      "original_path": "..\\scripts\\benchmark\\benchmark.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\benchmark\\benchmark.py"
+    },
+    {
+      "original_path": "..\\scripts\\bootstrap.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\bootstrap.py"
+    },
+    {
+      "original_path": "..\\scripts\\developer.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\developer.py"
+    },
+    {
+      "original_path": "..\\scripts\\package.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\package.py"
+    },
+    {
+      "original_path": "..\\scripts\\patch.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\patch.py"
+    },
+    {
+      "original_path": "..\\scripts\\run-pw.py",
+      "archive_path": "_python_archive\\_repo\\scripts\\run-pw.py"
+    },
+    {
+      "original_path": "..\\multibuild.py",
+      "archive_path": "_python_archive\\_repo\\multibuild.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\__init__.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\__init__.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\__main__.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\__main__.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\exceptions.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\exceptions.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\parser.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\parser.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\strings.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\strings.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\types.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\types.py"
+    },
+    {
+      "original_path": "..\\jsonvv\\jsonvv\\validator.py",
+      "archive_path": "_python_archive\\_repo\\jsonvv\\jsonvv\\validator.py"
+    },
+    {
+      "original_path": "..\\patches\\librewolf\\pack_vs.py",
+      "archive_path": "_python_archive\\_repo\\patches\\librewolf\\pack_vs.py"
+    },
+    {
+      "original_path": "..\\service-tester\\_bundle.py",
+      "archive_path": "_python_archive\\_repo\\service-tester\\_bundle.py"
+    },
+    {
+      "original_path": "..\\service-tester\\_certificate.py",
+      "archive_path": "_python_archive\\_repo\\service-tester\\_certificate.py"
+    },
+    {
+      "original_path": "..\\service-tester\\_constants.py",
+      "archive_path": "_python_archive\\_repo\\service-tester\\_constants.py"
+    },
+    {
+      "original_path": "..\\service-tester\\_grading.py",
+      "archive_path": "_python_archive\\_repo\\service-tester\\_grading.py"
+    },
+    {
+      "original_path": "..\\service-tester\\_proxies.py",
+      "archive_path": "_python_archive\\_repo\\service-tester\\_proxies.py"
+    },
+    {
+      "original_path": "..\\service-tester\\run_tests.py",
+      "archive_path": "_python_archive\\_repo\\service-tester\\run_tests.py"
+    },
+    {
+      "original_path": "..\\tests\\__init__.py",
+      "archive_path": "_python_archive\\_repo\\tests\\__init__.py"
+    },
+    {
+      "original_path": "..\\tests\\assets\\client.py",
+      "archive_path": "_python_archive\\_repo\\tests\\assets\\client.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\__init__.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\__init__.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\conftest.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\conftest.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_accessibility.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_accessibility.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_add_init_script.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_add_init_script.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_assertions.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_assertions.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_asyncio.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_asyncio.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browser.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browser.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_add_cookies.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_add_cookies.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_clearcookies.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_clearcookies.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_cookies.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_cookies.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_events.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_events.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_proxy.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_proxy.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_request_fallback.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_request_fallback.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_request_intercept.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_request_intercept.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_route.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_route.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_service_worker_policy.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_service_worker_policy.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsercontext_storage_state.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsercontext_storage_state.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsertype_connect.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsertype_connect.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_browsertype_connect_cdp.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_browsertype_connect_cdp.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_cdp_session.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_cdp_session.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_console.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_console.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_context_manager.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_context_manager.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_defaultbrowsercontext.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_defaultbrowsercontext.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_device_descriptors.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_device_descriptors.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_dialog.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_dialog.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_download.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_download.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_element_handle_wait_for_element_state.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_element_handle_wait_for_element_state.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_emulation_focus.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_emulation_focus.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_expect_misc.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_expect_misc.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_fetch_browser_context.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_fetch_browser_context.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_fetch_global.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_fetch_global.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_frames.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_frames.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_geolocation.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_geolocation.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_har.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_har.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_headful.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_headful.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_ignore_https_errors.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_ignore_https_errors.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_input.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_input.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_issues.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_issues.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_jshandle.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_jshandle.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_keyboard.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_keyboard.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_listeners.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_listeners.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_locators.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_locators.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_navigation.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_navigation.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_network.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_network.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_add_locator_handler.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_add_locator_handler.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_base_url.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_base_url.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_clock.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_clock.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_evaluate.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_evaluate.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_network_request.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_network_request.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_network_response.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_network_response.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_request_fallback.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_request_fallback.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_request_intercept.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_request_intercept.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_route.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_route.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_page_select_option.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_page_select_option.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_pdf.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_pdf.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_proxy.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_proxy.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_queryselector.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_queryselector.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_request_continue.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_request_continue.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_request_fulfill.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_request_fulfill.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_request_intercept.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_request_intercept.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_resource_timing.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_resource_timing.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_screenshot.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_screenshot.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_selector_generator.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_selector_generator.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_selectors_get_by.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_selectors_get_by.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_selectors_misc.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_selectors_misc.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_selectors_text.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_selectors_text.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_tap.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_tap.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_tracing.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_tracing.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_unroute_behavior.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_unroute_behavior.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_video.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_video.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_wait_for_function.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_wait_for_function.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_wait_for_url.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_wait_for_url.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_websocket.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_websocket.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\test_worker.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\test_worker.py"
+    },
+    {
+      "original_path": "..\\tests\\async\\utils.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async\\utils.py"
+    },
+    {
+      "original_path": "..\\tests\\async_imp\\__init__.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async_imp\\__init__.py"
+    },
+    {
+      "original_path": "..\\tests\\async_imp\\conftest.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async_imp\\conftest.py"
+    },
+    {
+      "original_path": "..\\tests\\async_imp\\test_frames.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async_imp\\test_frames.py"
+    },
+    {
+      "original_path": "..\\tests\\async_imp\\utils.py",
+      "archive_path": "_python_archive\\_repo\\tests\\async_imp\\utils.py"
+    },
+    {
+      "original_path": "..\\tests\\conftest.py",
+      "archive_path": "_python_archive\\_repo\\tests\\conftest.py"
+    },
+    {
+      "original_path": "..\\tests\\server.py",
+      "archive_path": "_python_archive\\_repo\\tests\\server.py"
+    },
+    {
+      "original_path": "..\\tests\\utils.py",
+      "archive_path": "_python_archive\\_repo\\tests\\utils.py"
+    }
+  ]
+}
