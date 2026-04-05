@@ -13,7 +13,7 @@
 
 ---
 
-## What is Zorroz?
+## What is Zorroz? (not tested or ready yet)
 
 Zorroz is a Go monorepo containing two core components for stealth browser automation:
 
