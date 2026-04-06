@@ -632,7 +632,9 @@ func LaunchOptions(opts LaunchOptionsConfig) (*LaunchOptionsResult, error) {
 	}
 
 	// Validate config
-	_ = ValidateConfig(config, opts.ExecutablePath)
+	if err := ValidateConfig(config, opts.ExecutablePath); err != nil {
+		return nil, err
+	}
 
 	// Build env vars
 	envVars, err := GetEnvVars(config, targetOS)

@@ -226,6 +226,24 @@ func LoadRepoConfigs() ([]RepoConfig, error) {
 		for _, r := range strings.Split(repoStr, ",") {
 			rc.Repos = append(rc.Repos, strings.TrimSpace(r))
 		}
+		// Parse browser version constraints from the versions block
+		if versions, ok := bm["versions"].([]interface{}); ok {
+			for _, ver := range versions {
+				vm, _ := ver.(map[string]interface{})
+				if vm == nil {
+					continue
+				}
+				if browser, ok := vm["browser"].(map[string]interface{}); ok {
+					if min, ok := browser["min"].(string); ok {
+						rc.BuildMin = min
+					}
+					if max, ok := browser["max"].(string); ok {
+						rc.BuildMax = max
+					}
+					break
+				}
+			}
+		}
 		configs = append(configs, rc)
 	}
 	return configs, nil
