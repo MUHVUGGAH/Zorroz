@@ -169,6 +169,8 @@ func validateType(value interface{}, expected string) bool {
 			return v >= 0
 		case int64:
 			return v >= 0
+		case uint, uint32, uint64:
+			return true
 		case float64:
 			return v >= 0 && v == float64(int(v))
 		default:
