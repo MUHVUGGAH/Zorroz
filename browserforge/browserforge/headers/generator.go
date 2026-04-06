@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"browserforge"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge"
 )
 
 // Constants

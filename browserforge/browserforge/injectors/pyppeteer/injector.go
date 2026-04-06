@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"browserforge/fingerprints"
-	"browserforge/injectors"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/fingerprints"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/injectors"
 )
 
 // PyppeteerBrowser is an interface for Pyppeteer/Puppeteer-like browser implementations.

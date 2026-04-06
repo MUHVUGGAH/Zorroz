@@ -1,8 +1,8 @@
 package playwright
 
 import (
-	"browserforge/fingerprints"
-	"browserforge/injectors"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/fingerprints"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/injectors"
 )
 
 // PlaywrightBrowser is an interface for Playwright browser implementations.

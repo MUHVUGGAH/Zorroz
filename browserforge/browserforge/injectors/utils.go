@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"browserforge/fingerprints"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/fingerprints"
 
 	"github.com/ulikunitz/xz"
 )

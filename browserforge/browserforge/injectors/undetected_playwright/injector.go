@@ -3,8 +3,8 @@
 package undetected_playwright
 
 import (
-	"browserforge/fingerprints"
-	"browserforge/injectors"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/fingerprints"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/injectors"
 )
 
 // UndetectedPlaywrightBrowser is an interface for Undetected-Playwright browser implementations.

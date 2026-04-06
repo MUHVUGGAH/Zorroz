@@ -98,8 +98,9 @@ func main() {
 ### Custom fingerprint properties
 
 ```go
-cf, err := camoufox.NewCamoufox(camoufox.NewBrowserOptions{
-    LaunchOptions: launchResult.ToPlaywrightLaunchOptionsPtr(),
+headless := true
+launchResult, err := camoufox.LaunchOptions(camoufox.LaunchOptionsConfig{
+    Headless: &headless,
     Config: map[string]interface{}{
         "property": "value",
     },

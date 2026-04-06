@@ -498,101 +498,128 @@ func GenerateContextFingerprint(options GenerateContextFingerprintOptions) (*Con
 			timezone = tz
 		}
 	} else {
-		// BrowserForge synthetic generation path
-		fp, err := GenerateFingerprint(options.OS, nil)
-		if err != nil {
-			return nil, fmt.Errorf("BrowserForge fingerprint generation failed: %w", err)
-		}
-
-		config = FromBrowserForge(fp, options.FFVersion)
-
-		// Add seeds (BrowserForge doesn't generate these)
-		if _, ok := config["fonts:spacing_seed"]; !ok {
-			config["fonts:spacing_seed"] = randomNonZeroUint32()
-		}
-		if _, ok := config["audio:seed"]; !ok {
-			config["audio:seed"] = randomNonZeroUint32()
-		}
-		if _, ok := config["canvas:seed"]; !ok {
-			config["canvas:seed"] = randomNonZeroUint32()
-		}
-
-		// Determine target OS from platform for font/voice generation
-		plat := stringValue(config["navigator.platform"])
-		osName := detectPresetTargetOS(plat)
-
-		// Add fonts (BrowserForge doesn't generate these)
-		if _, ok := config["fonts"]; !ok {
-			if fonts, err := GenerateRandomFontSubset(osName); err == nil {
-				config["fonts"] = fonts
+		// BrowserForge synthetic generation path — falls back to preset if data files are missing
+		fp, bfErr := GenerateFingerprint(options.OS, nil)
+		if bfErr != nil {
+			// BrowserForge data files not available; fall back to preset-based generation
+			var osNames []string
+			if options.OS != nil && *options.OS != "" {
+				osNames = []string{*options.OS}
 			}
-		}
-
-		// Add voices (BrowserForge doesn't generate these)
-		if _, ok := config["voices"]; !ok {
-			if voices, err := GenerateRandomVoiceSubset(osName); err == nil {
-				config["voices"] = voices
+			preset, presetErr := GetRandomPreset(osNames...)
+			if presetErr != nil || preset == nil {
+				return nil, fmt.Errorf("BrowserForge fingerprint generation failed: %w (preset fallback also unavailable)", bfErr)
 			}
-		}
+			config = FromPreset(*preset, options.FFVersion)
+			nav = map[string]any{
+				"platform":            preset.Navigator.Platform,
+				"hardwareConcurrency": preset.Navigator.HardwareConcurrency,
+			}
+			screen = map[string]any{
+				"width":            preset.Screen.Width,
+				"height":           preset.Screen.Height,
+				"colorDepth":       preset.Screen.ColorDepth,
+				"devicePixelRatio": preset.Screen.DevicePixelRatio,
+			}
+			webgl = map[string]any{
+				"unmaskedVendor":   preset.WebGL.UnmaskedVendor,
+				"unmaskedRenderer": preset.WebGL.UnmaskedRenderer,
+			}
+			timezone = preset.Timezone
+			if tz, ok := config["timezone"].(string); ok && tz != "" {
+				timezone = tz
+			}
+		} else {
+			config = FromBrowserForge(fp, options.FFVersion)
 
-		// Derive oscpu if BrowserForge didn't provide it
-		if _, ok := config["navigator.oscpu"]; !ok {
-			switch plat {
-			case "MacIntel":
-				config["navigator.oscpu"] = "Intel Mac OS X 10.15"
-			case "Win32":
-				config["navigator.oscpu"] = "Windows NT 10.0; Win64; x64"
-			default:
-				if strings.Contains(strings.ToLower(plat), "linux") {
-					config["navigator.oscpu"] = "Linux x86_64"
+			// Add seeds (BrowserForge doesn't generate these)
+			if _, ok := config["fonts:spacing_seed"]; !ok {
+				config["fonts:spacing_seed"] = randomNonZeroUint32()
+			}
+			if _, ok := config["audio:seed"]; !ok {
+				config["audio:seed"] = randomNonZeroUint32()
+			}
+			if _, ok := config["canvas:seed"]; !ok {
+				config["canvas:seed"] = randomNonZeroUint32()
+			}
+
+			// Determine target OS from platform for font/voice generation
+			plat := stringValue(config["navigator.platform"])
+			osName := detectPresetTargetOS(plat)
+
+			// Add fonts (BrowserForge doesn't generate these)
+			if _, ok := config["fonts"]; !ok {
+				if fonts, err := GenerateRandomFontSubset(osName); err == nil {
+					config["fonts"] = fonts
 				}
 			}
-		}
 
-		// Sample WebGL vendor/renderer from database (BrowserForge doesn't generate these)
-		if stringValue(config["webGl:vendor"]) == "" || stringValue(config["webGl:renderer"]) == "" {
-			osMap := map[string]string{"macos": "mac", "linux": "lin", "windows": "win"}
-			targetOSKey := ""
-			if options.OS != nil {
-				targetOSKey = osMap[*options.OS]
+			// Add voices (BrowserForge doesn't generate these)
+			if _, ok := config["voices"]; !ok {
+				if voices, err := GenerateRandomVoiceSubset(osName); err == nil {
+					config["voices"] = voices
+				}
 			}
-			if targetOSKey == "" {
+
+			// Derive oscpu if BrowserForge didn't provide it
+			if _, ok := config["navigator.oscpu"]; !ok {
 				switch plat {
+				case "MacIntel":
+					config["navigator.oscpu"] = "Intel Mac OS X 10.15"
 				case "Win32":
-					targetOSKey = "win"
+					config["navigator.oscpu"] = "Windows NT 10.0; Win64; x64"
 				default:
 					if strings.Contains(strings.ToLower(plat), "linux") {
-						targetOSKey = "lin"
-					} else {
-						targetOSKey = "mac"
+						config["navigator.oscpu"] = "Linux x86_64"
 					}
 				}
 			}
-			webglFP, err := SampleWebGLFromDB(targetOSKey, nil, nil)
-			if err == nil && webglFP != nil {
-				delete(webglFP, "webGl2Enabled")
-				for k, v := range webglFP {
-					config[k] = v
+
+			// Sample WebGL vendor/renderer from database (BrowserForge doesn't generate these)
+			if stringValue(config["webGl:vendor"]) == "" || stringValue(config["webGl:renderer"]) == "" {
+				osMap := map[string]string{"macos": "mac", "linux": "lin", "windows": "win"}
+				targetOSKey := ""
+				if options.OS != nil {
+					targetOSKey = osMap[*options.OS]
+				}
+				if targetOSKey == "" {
+					switch plat {
+					case "Win32":
+						targetOSKey = "win"
+					default:
+						if strings.Contains(strings.ToLower(plat), "linux") {
+							targetOSKey = "lin"
+						} else {
+							targetOSKey = "mac"
+						}
+					}
+				}
+				webglFP, err := SampleWebGLFromDB(targetOSKey, nil, nil)
+				if err == nil && webglFP != nil {
+					delete(webglFP, "webGl2Enabled")
+					for k, v := range webglFP {
+						config[k] = v
+					}
 				}
 			}
-		}
 
-		// Build source dicts from BrowserForge config for init_values
-		nav = map[string]any{
-			"platform":            config["navigator.platform"],
-			"hardwareConcurrency": config["navigator.hardwareConcurrency"],
+			// Build source dicts from BrowserForge config for init_values
+			nav = map[string]any{
+				"platform":            config["navigator.platform"],
+				"hardwareConcurrency": config["navigator.hardwareConcurrency"],
+			}
+			screen = map[string]any{
+				"width":            config["screen.width"],
+				"height":           config["screen.height"],
+				"colorDepth":       config["screen.colorDepth"],
+				"devicePixelRatio": nil,
+			}
+			webgl = map[string]any{
+				"unmaskedVendor":   config["webGl:vendor"],
+				"unmaskedRenderer": config["webGl:renderer"],
+			}
+			timezone, _ = config["timezone"].(string)
 		}
-		screen = map[string]any{
-			"width":            config["screen.width"],
-			"height":           config["screen.height"],
-			"colorDepth":       config["screen.colorDepth"],
-			"devicePixelRatio": nil,
-		}
-		webgl = map[string]any{
-			"unmaskedVendor":   config["webGl:vendor"],
-			"unmaskedRenderer": config["webGl:renderer"],
-		}
-		timezone, _ = config["timezone"].(string)
 	}
 
 	// Build the values dict for the init script (works for both paths)

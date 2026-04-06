@@ -1,4 +1,4 @@
-module browserforge
+module github.com/MUHVUGGAH/zorroz/browserforge/browserforge
 
 go 1.21
 

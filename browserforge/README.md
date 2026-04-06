@@ -53,7 +53,7 @@ package main
 
 import (
     "fmt"
-    "browserforge/headers"
+    "github.com/MUHVUGGAH/zorroz/browserforge/browserforge/headers"
 )
 
 func main() {
@@ -147,8 +147,8 @@ package main
 
 import (
     "fmt"
-    "browserforge/fingerprints"
-    "browserforge/headers"
+    "github.com/MUHVUGGAH/zorroz/browserforge/browserforge/fingerprints"
+    "github.com/MUHVUGGAH/zorroz/browserforge/browserforge/headers"
 )
 
 func main() {

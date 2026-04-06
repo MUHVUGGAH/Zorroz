@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"browserforge"
-	"browserforge/headers"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge"
+	"github.com/MUHVUGGAH/zorroz/browserforge/browserforge/headers"
 )
 
 // ScreenFingerprint holds screen-related fingerprint data.
