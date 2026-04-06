@@ -3,6 +3,7 @@ module github.com/MUHVUGGAH/zorroz/camoufox/golanglib/camoufox
 go 1.24.0
 
 require (
+	github.com/oschwald/maxminddb-golang v1.13.1
 	github.com/playwright-community/playwright-go v0.5700.1
 	gopkg.in/yaml.v3 v3.0.1
 	modernc.org/sqlite v1.37.1

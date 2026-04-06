@@ -654,7 +654,16 @@ func GenerateFingerprint(osName *string, window *[2]int) (*fingerprints.Fingerpr
 		return nil, err
 	}
 
-	fp, err := gen.Generate(nil)
+	var opts *fingerprints.GenerateOptions
+	if osName != nil && *osName != "" {
+		opts = &fingerprints.GenerateOptions{
+			HeaderOptions: &headers.GenerateOptions{
+				OS: []string{*osName},
+			},
+		}
+	}
+
+	fp, err := gen.Generate(opts)
 	if err != nil {
 		return nil, err
 	}

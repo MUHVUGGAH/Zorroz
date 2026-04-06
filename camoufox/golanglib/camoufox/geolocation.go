@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"net"
 	"net/http"
 	"net/url"
 	"os"
@@ -11,6 +12,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/oschwald/maxminddb-golang"
 	"gopkg.in/yaml.v3"
 )
 
@@ -200,16 +202,91 @@ func RemoveMMDB() {
 }
 
 // GetGeolocation looks up geo data for an IP address.
-// This is a simplified version that queries ip-api.com since maxminddb
-// requires an optional dependency. For full maxminddb support, use the
-// Python library or add a maxminddb Go dependency.
+// It tries the local MMDB database first (downloaded via DownloadMMDB),
+// falling back to ip-api.com over HTTPS only if no MMDB is available.
 func GetGeolocation(ip string, geoipDB string) (Geolocation, error) {
 	if err := ValidateIP(ip); err != nil {
 		return Geolocation{}, err
 	}
 
-	// Use ip-api.com as fallback (the Python version uses maxminddb)
-	apiURL := fmt.Sprintf("http://ip-api.com/json/%s?fields=query,lat,lon,timezone,countryCode", url.QueryEscape(ip))
+	// Try local MMDB lookup first
+	geo, err := lookupMMDB(ip, geoipDB)
+	if err == nil {
+		return geo, nil
+	}
+
+	// Fallback to HTTPS API (only if MMDB is unavailable)
+	return lookupIPAPI(ip)
+}
+
+// lookupMMDB performs a local MMDB lookup for the given IP.
+func lookupMMDB(ip string, geoipDB string) (Geolocation, error) {
+	parsedIP := net.ParseIP(ip)
+	if parsedIP == nil {
+		return Geolocation{}, fmt.Errorf("invalid IP: %s", ip)
+	}
+
+	// Determine which MMDB config to use
+	var config map[string]interface{}
+	var err error
+	if geoipDB != "" {
+		config, err = getGeoIPConfigByName(geoipDB)
+	} else {
+		config, err = LoadGeoIPConfig()
+	}
+	if err != nil {
+		return Geolocation{}, fmt.Errorf("no MMDB config: %w", err)
+	}
+
+	ipVersion := "ipv4"
+	if parsedIP.To4() == nil {
+		ipVersion = "ipv6"
+	}
+	mmdbPath := GetMMDBPath(ipVersion, config)
+
+	db, err := maxminddb.Open(mmdbPath)
+	if err != nil {
+		return Geolocation{}, fmt.Errorf("failed to open MMDB %s: %w", mmdbPath, err)
+	}
+	defer db.Close()
+
+	var record struct {
+		Country struct {
+			ISOCode string `maxminddb:"iso_code"`
+		} `maxminddb:"country"`
+		Location struct {
+			Latitude  float64 `maxminddb:"latitude"`
+			Longitude float64 `maxminddb:"longitude"`
+			TimeZone  string  `maxminddb:"time_zone"`
+			Accuracy  uint16  `maxminddb:"accuracy_radius"`
+		} `maxminddb:"location"`
+	}
+
+	if err := db.Lookup(parsedIP, &record); err != nil {
+		return Geolocation{}, fmt.Errorf("MMDB lookup failed for %s: %w", ip, err)
+	}
+
+	if record.Country.ISOCode == "" {
+		return Geolocation{}, fmt.Errorf("%w: IP not found in MMDB: %s", ErrUnknownIPLocation, ip)
+	}
+
+	locale, err := DefaultSelector().FromRegion(record.Country.ISOCode)
+	if err != nil {
+		locale = Locale{Language: "en", Region: record.Country.ISOCode}
+	}
+
+	return Geolocation{
+		Loc:       locale,
+		Longitude: record.Location.Longitude,
+		Latitude:  record.Location.Latitude,
+		Timezone:  record.Location.TimeZone,
+		Accuracy:  float64(record.Location.Accuracy),
+	}, nil
+}
+
+// lookupIPAPI queries ip-api.com over HTTPS as a last-resort fallback.
+func lookupIPAPI(ip string) (Geolocation, error) {
+	apiURL := fmt.Sprintf("https://ip-api.com/json/%s?fields=query,lat,lon,timezone,countryCode", url.QueryEscape(ip))
 	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Get(apiURL)
 	if err != nil {

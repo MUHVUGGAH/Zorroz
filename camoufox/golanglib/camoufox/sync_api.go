@@ -259,7 +259,7 @@ func resolveProxyGeo(proxy playwright.Proxy) proxyGeo {
 		},
 	}
 
-	resp, err := client.Get("http://ip-api.com/json?fields=query,timezone")
+	resp, err := client.Get("https://ip-api.com/json?fields=query,timezone")
 	if err != nil {
 		return proxyGeo{}
 	}
